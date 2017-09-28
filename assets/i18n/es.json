@@ -1,0 +1,67 @@
+{
+    "PAGE_TITLE": "Juego de parejas | Encuentra las parejas",
+    "COMMON": {
+        "SAVE": "Guardar",
+        "CLOSE": "Cerrar",
+        "TIME": "Tiempo",
+        "FLIP": "Cambio",
+        "SCORE": "Punto",        
+        "LEVEL": "Nivel",    
+        "CHANGE": "Modificación",    
+        "CANCEL": "Cancelar",
+        "GUEST": "Jugador"  
+    },
+
+    "WELCOME": {        
+        "HEADER":{
+            "TITLE":"Juego de parejas",
+            "DESCRIPTION": "Juego de parejas | Encuentra las parejas",
+            "USER_GREET": "Hola",
+            "CHANGE_USER": "Cambiar nombre",
+            "CHANGE_LANGUGAE": "Cambiar idioma"            
+        },
+
+        "GAME":{
+            "SELECT_GAME": "Selecciona un juego",
+            "EASY": "Fácil",
+            "MEDIUM": "Medio",
+            "HARD": "Difícil",
+            "SCOREBOARD": "Puntuación"
+        },
+
+        "FOOTER": {
+            "GREET": "Gracias por la visita.",
+            "APP_MODE": "Modo: Web.",
+            "BUG_REPORT": "¿Encontraste un error? Por favor déjanos saber.",
+            "CREDIT": "MP Team gaming | Juego de parejas | Web versión",
+            "BROWSER_SUPPORT": "Navegadores",
+            "LATEST" : "Último"
+        },
+
+        "BUGREPORT": {
+            "THANKS": "¡Gracias por tu ayuda!", 
+            "SEND": "Por favor, envíenos una carta con una breve descripción.", 
+            "EMAIL": "peter.karpati@outlook.com", 
+            "GOODDAY": "¡Tengáis un buen día!"
+        }
+    },
+
+    "WIN": {
+        "CONGRAT": "¡Enhorabuena! ¡Se encontraron todos los pares!",
+        "NEWGAME": "Iniciar un nuevo juego",
+        "OPENSCOREBOARD": "Puntuación"
+    },
+
+    "HISTORY": {
+        "NAVIGATEBACK": "Navegar hacia atrás",
+        "BEST": "El mejor",
+        "NOSCORE": "En este nivel ningún juego había terminado hasta ahora",
+        "SCORES": " puntos"
+    },
+
+    "CHANGEUSER": {
+        "HEADER": "Cambiar usuario",
+        "CURRENTUSER": "Tu nombre de usuario",
+        "DESCRIPTION": "Para guardar los puntos en su navegador."
+    }
+}

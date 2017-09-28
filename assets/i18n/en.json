@@ -1,0 +1,67 @@
+{
+    "PAGE_TITLE": "Memory Card Game | Find pairs",
+    "COMMON": {
+        "SAVE": "Save",
+        "CLOSE": "Close",
+        "TIME": "Time",
+        "FLIP": "Flip",
+        "SCORE": "Score",        
+        "LEVEL": "Level",    
+        "CHANGE": "Change",    
+        "CANCEL": "Cancel",
+        "GUEST": "Guest"  
+    },
+
+    "WELCOME": {        
+        "HEADER":{
+            "TITLE":"Memory Game",
+            "DESCRIPTION": "Classic card game. Let's have fun and find some pairs.",
+            "USER_GREET": "Hello",
+            "CHANGE_USER": "Change name",
+            "CHANGE_LANGUGAE": "Change language"            
+        },
+
+        "GAME":{
+            "SELECT_GAME": "Select a game mode",
+            "EASY": "Easy",
+            "MEDIUM": "Medium",
+            "HARD": "Hard",
+            "SCOREBOARD": "Scoreboard"
+        },
+
+        "FOOTER": {
+            "GREET": "Thanks for jumping in.",
+            "APP_MODE": "You are in web mode.",
+            "BUG_REPORT": "Found a bug? Please let us know.",
+            "CREDIT": "MP Team gaming | Memory Card Game | Web build",
+            "BROWSER_SUPPORT": "Supported browsers",
+            "LATEST" : "Latest"
+        },
+
+        "BUGREPORT": {
+            "THANKS": "Thanks for your help!", 
+            "SEND": "Please send us a letter with a short description.", 
+            "EMAIL": "peter.karpati@outlook.com", 
+            "GOODDAY": "Wish you a good day!"
+        }
+    },
+
+    "WIN": {
+        "CONGRAT": "Congratulation!  All pairs were found!",
+        "NEWGAME": "Start a new game",
+        "OPENSCOREBOARD": "Open scoreboard"
+    },
+
+    "HISTORY": {
+        "NAVIGATEBACK": "Navigate back",
+        "BEST": "Best",
+        "NOSCORE": "At this level no game was finished so far",
+        "SCORES": "'s scores"
+    },
+
+    "CHANGEUSER": {
+        "HEADER": "Change user",
+        "CURRENTUSER": "Your current username",
+        "DESCRIPTION": "We use this name to save your results in your browser."
+    }
+}

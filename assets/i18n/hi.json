@@ -1,0 +1,67 @@
+{
+    "PAGE_TITLE": "मेमोरी गेम | जोड़े खोजें",
+    "COMMON": {
+        "SAVE": "बचाना",
+        "CLOSE": "बंद करें",
+        "TIME": "पहर",
+        "FLIP": "मोड़",
+        "SCORE": "बिंदु",        
+        "LEVEL": "स्तर",    
+        "CHANGE": "परिवर्तन",    
+        "CANCEL": "रद्द करना",
+        "GUEST": "अतिथि"  
+    },
+
+    "WELCOME": {        
+        "HEADER":{
+            "TITLE":"मेमोरी गेम",
+            "DESCRIPTION": "कार्ड खेल | आओ मज़ा लें",
+            "USER_GREET": "नमस्ते",
+            "CHANGE_USER": "नाम परिवर्तित करें",
+            "CHANGE_LANGUGAE": "भाषा बदलो"            
+        },
+
+        "GAME":{
+            "SELECT_GAME": "खेल का चयन करें",
+            "EASY": "आसान",
+            "MEDIUM": "मध्यम",
+            "HARD": "कठिन",
+            "SCOREBOARD": "स्कोरबोर्ड"
+        },
+
+        "FOOTER": {
+            "GREET": "अस्सलाम वालेकुम",
+            "APP_MODE": "Web application",
+            "BUG_REPORT": "त्रुटि | कृपया हमें बताएं",
+            "CREDIT": "MP Team gaming | मेमोरी गेम | Web build",
+            "BROWSER_SUPPORT": "ब्राउज़रों",
+            "LATEST" : "नवीनतम"
+        },
+
+        "BUGREPORT": {
+            "THANKS": "आपकी सहायता के लिए धन्यवाद", 
+            "SEND": "कृपया एक संक्षिप्त विवरण भेजें।", 
+            "EMAIL": "peter.karpati@outlook.com", 
+            "GOODDAY": "आपका दिन शुभ रहे"
+        }
+    },
+
+    "WIN": {
+        "CONGRAT": "बधाई | तुम जीते",
+        "NEWGAME": "एक नया गेम शुरू करें",
+        "OPENSCOREBOARD": "स्कोरबोर्ड"
+    },
+
+    "HISTORY": {
+        "NAVIGATEBACK": "वापस नेविगेट करें",
+        "BEST": "श्रेष्ठ",
+        "NOSCORE": "कोई अंक नहीं",
+        "SCORES": " अंक"
+    },
+
+    "CHANGEUSER": {
+        "HEADER": "उपयोगकर्ता का परिवर्तन करें",
+        "CURRENTUSER": "वर्तमान उपयोगकर्ता नाम",
+        "DESCRIPTION": "अपने परिणामों को बचाने के लिए"
+    }
+}
