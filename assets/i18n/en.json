@@ -9,7 +9,9 @@
         "LEVEL": "Level",    
         "CHANGE": "Change",    
         "CANCEL": "Cancel",
-        "GUEST": "Guest"  
+        "GUEST": "Guest",
+        "YELLOW": "Yellow",
+        "BLUE": "Blue"
     },
 
     "WELCOME": {        
@@ -17,16 +19,19 @@
             "TITLE":"Memory Game",
             "DESCRIPTION": "Classic card game. Let's have fun and find some pairs.",
             "USER_GREET": "Hello",
-            "CHANGE_USER": "Change name",
-            "CHANGE_LANGUGAE": "Change language"            
+            "CHANGE_USER": "New name",
+            "CHANGE_LANGUGAE": "Language change"
         },
 
-        "GAME":{
-            "SELECT_GAME": "Select a game mode",
+        "GAME":{            
             "EASY": "Easy",
+            "SMALL": "Small",
             "MEDIUM": "Medium",
             "HARD": "Hard",
-            "SCOREBOARD": "Scoreboard"
+            "LARGE": "Large",
+            "SCOREBOARD": "Scoreboard",
+            "SINGLE_PLAYER": "Single player",
+            "TWO_PLAYER": "Two player"
         },
 
         "FOOTER": {
@@ -49,7 +54,10 @@
     "WIN": {
         "CONGRAT": "Congratulation!  All pairs were found!",
         "NEWGAME": "Start a new game",
-        "OPENSCOREBOARD": "Open scoreboard"
+        "OPENSCOREBOARD": "Open scoreboard",
+        "DRAW": "It is a draw",
+        "YELLOW_WINS": "Yellow has won the match.",
+        "BLUE_WINS": "Blue has won the match."
     },
 
     "HISTORY": {

@@ -9,7 +9,9 @@
         "LEVEL": "Nivel",    
         "CHANGE": "Modificación",    
         "CANCEL": "Cancelar",
-        "GUEST": "Jugador"  
+        "GUEST": "Jugador",
+        "YELLOW": "Amarillo",
+        "BLUE": "Azul"
     },
 
     "WELCOME": {        
@@ -18,15 +20,19 @@
             "DESCRIPTION": "Juego de parejas | Encuentra las parejas",
             "USER_GREET": "Hola",
             "CHANGE_USER": "Cambiar nombre",
-            "CHANGE_LANGUGAE": "Cambiar idioma"            
+            "CHANGE_LANGUGAE": "Cambiar idioma"        
         },
 
         "GAME":{
             "SELECT_GAME": "Selecciona un juego",
             "EASY": "Fácil",
+            "SMALL": "Pequeno",
             "MEDIUM": "Medio",
             "HARD": "Difícil",
-            "SCOREBOARD": "Puntuación"
+            "LARGE": "Grande",
+            "SCOREBOARD": "Puntuación",
+            "SINGLE_PLAYER": "Juego solo",
+            "TWO_PLAYER": "Multijugador" 
         },
 
         "FOOTER": {
@@ -49,7 +55,11 @@
     "WIN": {
         "CONGRAT": "¡Enhorabuena! ¡Se encontraron todos los pares!",
         "NEWGAME": "Iniciar un nuevo juego",
-        "OPENSCOREBOARD": "Puntuación"
+        "OPENSCOREBOARD": "Puntuación",
+        "DRAW": "Es un empate.",
+        "YELLOW_WINS": "Amarillo ha ganado el partido.",
+        "BLUE_WINS": "Azul ha ganado el partido."
+        
     },
 
     "HISTORY": {

@@ -9,7 +9,9 @@
         "LEVEL": "स्तर",    
         "CHANGE": "परिवर्तन",    
         "CANCEL": "रद्द करना",
-        "GUEST": "अतिथि"  
+        "GUEST": "अतिथि",
+        "YELLOW": "पीला",
+        "BLUE": "नीला"
     },
 
     "WELCOME": {        
@@ -24,9 +26,13 @@
         "GAME":{
             "SELECT_GAME": "खेल का चयन करें",
             "EASY": "आसान",
+            "SMALL": "छोटा",
             "MEDIUM": "मध्यम",
             "HARD": "कठिन",
-            "SCOREBOARD": "स्कोरबोर्ड"
+            "LARGE": "विशाल",
+            "SCOREBOARD": "स्कोरबोर्ड",
+            "SINGLE_PLAYER": "अकेला खिलाडी",
+            "TWO_PLAYER": "मल्टीप्लेयर" 
         },
 
         "FOOTER": {
@@ -49,7 +55,10 @@
     "WIN": {
         "CONGRAT": "बधाई | तुम जीते",
         "NEWGAME": "एक नया गेम शुरू करें",
-        "OPENSCOREBOARD": "स्कोरबोर्ड"
+        "OPENSCOREBOARD": "स्कोरबोर्ड",        
+        "DRAW": "यह एक ड्रा है",
+        "YELLOW_WINS": "पीले ने मैच जीत लिया है",
+        "BLUE_WINS": "नीले ने मैच जीत लिया है"
     },
 
     "HISTORY": {

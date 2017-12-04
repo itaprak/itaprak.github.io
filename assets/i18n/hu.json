@@ -9,7 +9,9 @@
         "LEVEL": "Szint",
         "CHANGE": "Módosít",    
         "CANCEL": "Mégsem",
-        "GUEST": "Vendég" 
+        "GUEST": "Vendég" ,
+        "YELLOW": "Sárga",
+        "BLUE": "Kék"
     },
 
     "WELCOME": {        
@@ -24,9 +26,13 @@
         "GAME":{
             "SELECT_GAME": "Válassz játékot",
             "EASY": "Könnyű",
+            "SMALL": "Kicsi",
             "MEDIUM": "Közepes",
             "HARD": "Nehéz",
-            "SCOREBOARD": "Eredmények"
+            "LARGE": "Nagy",
+            "SCOREBOARD": "Eredmények",
+            "SINGLE_PLAYER": "Egy játékos",
+            "TWO_PLAYER": "Két játékos"
         },
 
         "FOOTER": {
@@ -49,7 +55,10 @@
     "WIN": {
         "CONGRAT": "Gratulálunk!  Megtaláltad az összes párt!",
         "NEWGAME": "Új játék indítása",
-        "OPENSCOREBOARD": "Korábbi eredmények"
+        "OPENSCOREBOARD": "Korábbi eredmények",
+        "DRAW": "Döntetlen",
+        "YELLOW_WINS": "Sárga nyerte a meccset",
+        "BLUE_WINS": "Kék nyerte a meccset"
     },
 
     "HISTORY": {

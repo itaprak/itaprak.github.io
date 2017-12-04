@@ -9,7 +9,9 @@
         "LEVEL": "水平",    
         "CHANGE": "换",    
         "CANCEL": "取消",
-        "GUEST": "用户"  
+        "GUEST": "用户",
+        "YELLOW": "黄色",
+        "BLUE": "蓝色"
     },
 
     "WELCOME": {        
@@ -24,9 +26,13 @@
         "GAME":{
             "SELECT_GAME": "选择游戏",
             "EASY": "简单",
+            "SMALL": "小",
             "MEDIUM": "中",
             "HARD": "硬",
-            "SCOREBOARD": "点"
+            "LARGE": "大",
+            "SCOREBOARD": "点",
+            "SINGLE_PLAYER": "单人玩家",
+            "TWO_PLAYER": "多人" 
         },
 
         "FOOTER": {
@@ -49,7 +55,10 @@
     "WIN": {
         "CONGRAT": "恭喜 | 你赢了",
         "NEWGAME": "开始新游戏",
-        "OPENSCOREBOARD": "点"
+        "OPENSCOREBOARD": "点",
+        "DRAW": "这是一幅画",
+        "YELLOW_WINS": "黄色赢得了比赛",
+        "BLUE_WINS": "蓝色赢得了比赛"
     },
 
     "HISTORY": {
