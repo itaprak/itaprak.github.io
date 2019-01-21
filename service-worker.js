@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.5cc5723b0909def80e089eb8fcf3901c.js"
+  "/precache-manifest.d584980ed0a0e431d2ff87f4cc1d82a5.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "homokiglass_"});
