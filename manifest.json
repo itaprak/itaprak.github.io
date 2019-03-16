@@ -1,6 +1,6 @@
 {
-  "name": "HomokiGlass",
-  "short_name": "HomokiGlass",
+  "name": "homokiglass",
+  "short_name": "homokiglass",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",
@@ -23,7 +23,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/",
+  "start_url": "./index.html",
   "display": "fullscreen",
   "orientation": "portrait",
   "background_color": "#ffffff",
