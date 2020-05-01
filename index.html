@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/icomoon/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/loader.css">
+</head>
+
+<body>
+    <div class="left--panel">
+        <h1 class="left--panel__logo">
+            <span class="icon-toxic"></span> 
+            Spread simulator<br/>
+            <span style="text-align: right; opacity:0.5; font-size: 12px;">Beta: v0.1</span>
+        </h1>
+        
+        <div class="left--panel__control">
+            <div class="lp-container">
+                <div class="lp-title">Current turn: </div>
+                <div class="lp-value" id="currentTurn">0</div>
+            </div>
+            <div class="lp-container">
+                <div class="lp-title">Population: </div>
+                <div class="lp-value" id="numberOfCitizens">0</div>
+            </div>
+            <div class="lp-container">
+                <div class="lp-title">Never infected: </div>
+                <div class="lp-value" id="numberOfCitizensHadNoContactWithTheVirus">0</div>
+            </div>
+            <div class="lp-container">
+                <div class="lp-title">Infected: </div>
+                <div class="lp-value" id="numberOfInfectedCitizens">1</div>
+            </div>
+            <div class="lp-container">
+                <div class="lp-title">Sick: </div>
+                <div class="lp-value" id="numberOfSickCitizens">0</div>
+            </div>
+            <div class="lp-container">
+                <div class="lp-title">Curred: </div>
+                <div class="lp-value" id="numberOfCurredCitizens">0</div>
+            </div>
+ 
+            <button id="nextBtn" type="button">Next turn</button>
+            <p>Go one turn forward and have a look what happens</p>
+
+            <button id="autoMode" type="button">Start auto play</button>
+            <p>Auto play. New turn in every 3 sec</p>
+            <button id="stopAutoMode" type="button" disabled="true">Stop auto play</button>
+            <p>Stop auto play, if it is active</p>
+
+            <button id="simulatorMode" type="button">Simulator mode</button>
+            <p>Show the end state</p>
+
+            <button id="restartGame" type="button">Restart / Reset</button>
+            <p>Start from the beginning BUGZ... :)</p>
+        </div>        
+    </div>
+    <div class="game--screen"> 
+        <div class="game--configuration">            
+            <div id="config-presenter" class="game--configuration__presenter" >  
+                <h2><span class="icon-equalizer"></span> Game configuration:</h2>         
+                <span class="game--configuration__item">Virus infectiousness: <b><span id="virusInfectiousness"></span></b>
+                    <br><span style="font-size: 11px; color: gray;">// chance to infect</span>
+                </span> 
+                <span class="game--configuration__item">Population movement rate: <b><span id="populationMovement"></span></b>
+                    <br><span style="font-size: 11px; color: gray;">// E.g.: 5%: From 100 citizens ~5 moves per turn</span>
+                </span>
+                    <span class="game--configuration__item">Incubation period: <span id="incubationPeriod"></span>
+                    <br><span style="font-size: 11px; color: gray;">Number of turns an infected citizen become sick</span>
+                </span>
+                <span class="game--configuration__item">Sick time: <span id="curredAfter"></span>
+                    <br><span style="font-size: 11px; color: gray;">Number of turns a sick citizen become curred</span>
+                </span>
+                <span class="game--configuration__item">Connection per citizen: <span id="numberOfConnectionPerCitizen"></span>
+                    <br><span style="font-size: 11px; color: gray;">Number of buildings a citizen can visit</span>
+                </span>
+        
+                <div style="margin-top: 10px; margin-bottom: 10px">
+                    <span class="game--configuration__item">
+                        Small buildings: { Number: <span id="houseNumber"></span>, Population per building:  <span id="housePopulation"></span> }
+                    </span>
+
+                    <span class="game--configuration__item">
+                        Large buildings: { Number: <span id="apartmentNumber"></span>, Population per building: <span id="apartmentPopulation"></span> }
+                    </span>
+                </div>
+                <button id="openGameConfigurationPanel" class="game--configuration__button" style="width: auto; font-size: 14px;">Change game configuration</button>
+            </div> 
+            <div id="config-edit" class="game--configuration__edit_container" style="display: none;">
+                <h2>Edit game configuration 
+                <button id="discardGameConfigurationPanel" style=" width: auto; font-size: 14px; display: inline;">Discard changes</button>  </h2>
+                <h4>Virus:</h4>
+                <div class="game--configuration__edit">
+                    <div class="game--configuration__edit_title">Virus infectiousness: </div>
+                    <div class="game--configuration__edit_input"><input id="editVirusInfectiousness" type="number" min="1" max="100"/></div>
+                    <div class="game--configuration__edit_expl">The chance to infect in percentage. <br>E.g. 100 means: An infected citizen will infect everybody if they are in the same building. <br>Range: 1 - 100</div>
+                </div> 
+                <h4>Citizens:</h4>
+                <div class="game--configuration__edit">
+                    <div class="game--configuration__edit_title">Population movement rate: </div>
+                    <div class="game--configuration__edit_input"><input id="editPopulationMovement" type="number" min="1" max="100"/></div>
+                    <div class="game--configuration__edit_expl">This percentage of the population will move (approximately) per turn. Range: 1 - 100</div>
+                </div>
+                <div class="game--configuration__edit">
+                    <div class="game--configuration__edit_title">Incubation period: </div>
+                    <div class="game--configuration__edit_input"><input id="editIncubationPeriod" type="number" min="1" max="30"/></div>
+                    <div class="game--configuration__edit_expl">Number of turns an infected citizen become sick. Range: 1 - 30 </div>
+                </div> 
+                <div class="game--configuration__edit">
+                    <div class="game--configuration__edit_title">Sick time: </div>
+                    <div class="game--configuration__edit_input"><input id="editCurredAfter" type="number" min="1" max="30"/></div>
+                    <div class="game--configuration__edit_expl">Number of turns a sick citizen become curred. Range: 1 - 30 </div>
+                </div>
+                <h4>City and Population:</h4>
+                <p>Hint (1): The maximum populatio you can observ your population (movement, infection) on the graphical interface is <b>1000</b></p>
+                <p>Hint (2): The maximum populatio where the simulation runs smoothly on an avarage desktop pc is <b>10000</b></p>
+                <div class="game--configuration__edit">
+                    <div class="game--configuration__edit_title">Number of small buildings: </div>
+                    <div class="game--configuration__edit_input"><input id="editHouseNumber" type="number" min="0" max="5000"/></div>
+                    <div class="game--configuration__edit_expl">~ Range: 0 - 5000 </div>
+                </div>
+                <div class="game--configuration__edit">
+                    <div class="game--configuration__edit_title">Population per small building: </div>
+                    <div class="game--configuration__edit_input"><input id="editHousePopulation" type="number" min="1" max="6"/></div>
+                    <div class="game--configuration__edit_expl">~ Range: 1 - 6 </div>
+                </div>
+                <div class="game--configuration__edit">
+                    <div class="game--configuration__edit_title">Number of large buildings: </div>
+                    <div class="game--configuration__edit_input"><input id="editApartmentNumber" type="number" min="0" max="1000"/></div>
+                    <div class="game--configuration__edit_expl">~ Range: 0 - 1000 </div>
+                </div>
+                <div class="game--configuration__edit">
+                    <div class="game--configuration__edit_title">Population per large building: </div>
+                    <div class="game--configuration__edit_input"><input id="editApartmentPopulation" type="number" min="6" max="12"/></div>
+                    <div class="game--configuration__edit_expl">~ Range: 6 - 12 </div>
+                </div>                 
+                <button id="saveGameConfigChanges" class="game--configuration__button">Save changes</button>   
+            </div>
+        </div>
+        <div class="game--rules">
+            <div>
+                Infection: In a building every infectious citizen (Infected or Sick) have a chance to infect an uninfected citizen. This chance is defined by the 'Virus infectiousness'. <br>
+                Infection: There is no incubation period. Infectious citizen are spreading the infection immediatly.<br>
+                Infected citizens become sick citizens. Sick citizens are not moving once they returned home.<br>
+                Citizens are returning home in every 4th round<br>
+                Curred citizens are considered to be immune.<br>
+                       
+            </div>
+        </div>
+        <div id="simulatorLoader">
+            <div class="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        </div>
+        <div id="chartsContainer">      
+            <!-- <canvas id="lineChart" width="1000" height="250"></canvas>
+            <canvas id="barChart" width="1000" height="250"></canvas> -->
+        </div>
+        <div style="position: relative; margin-left: 20px;"> 
+            <div id="gameScreen"></div>     
+        </div>   
+    </div>
+
+    <script src="/view_module/chart.js"></script>
+    <script type="module" src="game.js"></script>
+</body>
+
+</html>
