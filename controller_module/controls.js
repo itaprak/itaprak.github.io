@@ -58,10 +58,7 @@ export function Controllers(){
             this.restartButton.disabled = true;
 
             setTimeout(()=>{
-                while(GameObject.infectedCitizens.length){
-                    GameObject.next(true);
-                }    
-                GameObject.next(true);
+                GameObject.runSimulatorMode()
             },500)
             
         });

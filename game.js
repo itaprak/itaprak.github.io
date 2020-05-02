@@ -47,10 +47,18 @@ function Game(gameConfig, gameControllers){
 
     this.citizens = [];
     this.residentialBuildings = [];
-    this.infectedCitizens = [];
-    // this.infectedBuildings = []; todo idea...
+    this.buildingsState = {}; 
+    // this.buildingsState = {
+    //     'buildingId': {
+    //         infectionLevel: number,
+    //         healtyCitizenIndex: [number] 
+    //     }
+    // }; 
+
+    
     this.turn = 0;
-    this.newInfection = 0;
+    this.infectedCitizens = 0;
+    this.newInfectionPerTurn = 0;
     this.autoInterval = undefined;
 
 
@@ -58,34 +66,42 @@ function Game(gameConfig, gameControllers){
         let randomStart = Math.floor((Math.random() * this.citizens.length));
         this.citizens[randomStart].state.infected = true;
         this.citizens[randomStart].state.numberOfTurnsSinceInfection++;
-
-        this.infectedCitizens.push(this.citizens[randomStart]);
-        this.citizens.splice(randomStart, 1);
-        this.newInfection++;
+        this.buildingsState = this.generateBuildingsState(this.citizens)
+        this.newInfectionPerTurn++;
+        this.infectedCitizens++;
     }
 
-    this.spreadTheInfection = function() {        
-        this.infectedCitizens.forEach(infectedCitizen => {            
-            this.citizens.forEach((citizen) => {
-                if(citizen.state.curred || citizen.state.infected){return}
-                if(citizen.currentBuildingId === infectedCitizen.currentBuildingId){
+    this.spreadTheInfection = function() {
+        Object.keys(this.buildingsState).forEach((key)=>{ 
+            while(this.buildingsState[key].infectionLevel > 0) {
+                this.buildingsState[key].healthyCitizenIndex.forEach((citizenIndex)=>{
+                    if(this.citizens[citizenIndex].state.infected || this.citizens[citizenIndex].state.curred){ return };
+
                     let random0to100 = Math.floor(Math.random() * 100)
                     let toBeInfected = !!((random0to100 - this.gameConfig.virusInfectiousness) < 0)
                     if(toBeInfected){
-                        citizen.state.infected = true;
-                        this.infectedCitizens.push(citizen);    
-                        this.newInfection++;                    
-                    }
-                 }
-            })
-        })  
-        this.citizens = this.citizens.filter(c => {return c.state.infected === false})      
+                        this.citizens[citizenIndex].state.infected = true;   
+                        this.newInfectionPerTurn++;                    
+                    } 
+                })   
+                this.buildingsState[key].infectionLevel--;                        
+            }  
+        })
     }
 
-    this.clearInfectedCitizensArray = function(){ 
-        let curredCitizens = this.infectedCitizens.filter((iC)=>{return iC.state.curred});
-        this.infectedCitizens = this.infectedCitizens.filter((iC)=>{return iC.state.infected});
-        this.citizens = this.citizens.concat(curredCitizens);
+    this.generateBuildingsState = function(citizens){
+        let buildingState = {};
+        citizens.forEach((citizen, cIndex)=>{
+            if(!buildingState[citizen.currentBuildingId]){
+                buildingState[citizen.currentBuildingId] = {infectionLevel:0, healthyCitizenIndex: []}
+            }
+            if(citizen.state.infected){
+                buildingState[citizen.currentBuildingId].infectionLevel++
+            }else{
+                buildingState[citizen.currentBuildingId].healthyCitizenIndex.push(cIndex)
+            }
+        })
+        return buildingState;
     }
 
     this.init = function(){
@@ -101,7 +117,7 @@ function Game(gameConfig, gameControllers){
             populationMovement: this.gameConfig.citizen.populationMovement,
             incubationPeriod: this.gameConfig.citizen.incubationTime,
             curredAfter: this.gameConfig.citizen.curredAfter,
-            numberOfCitizens: this.citizens.concat(this.infectedCitizens).length,
+            numberOfCitizens: this.citizens.length,
             apartmentNumber: this.gameConfig.city.residential.apartment,
             houseNumber: this.gameConfig.city.residential.house,
             apartmentPopulation: this.gameConfig.city.population.apartment,
@@ -117,41 +133,46 @@ function Game(gameConfig, gameControllers){
             curred: 0,
             neverInfected: this.citizens.length
         })
-        this.view.init(this.residentialBuildings, this.citizens.concat(this.infectedCitizens), data);
+        this.view.init(this.residentialBuildings, this.citizens, data);
+    }
+
+    this.runSimulatorMode = function(){
+        
+        while(this.infectedCitizens){
+            this.next(true);
+        }    
+        this.next(true);
     }
 
     this.next = function(simulatorMode){     
-        this.newInfection = 0;
+        this.newInfectionPerTurn = 0;
+        this.turn++;
+        this.infectedCitizens = this.citizens.reduce((acc, curr)=>{ return curr.state.infected ? ++acc : acc}, 0);
         
-        if(!this.infectedCitizens.length){
-            this.view.next(this.citizens.concat(this.infectedCitizens), this.gameHistory.history.gameHistory[this.gameHistory.history.gameHistory.length-1]); 
+        if(!this.infectedCitizens){
+            this.view.next(this.citizens, this.gameHistory.history.gameHistory[this.gameHistory.history.gameHistory.length-1]); 
             clearInterval(myGame.autoInterval);
             ShowChart('chartsContainer', this.gameHistory);
             this.gameControllers.simulationEnds();
-        }
-        this.turn++;
-
-        this.clearInfectedCitizensArray();  // Double CLEAR citizen state update sick -> curred REFACTOR TODO
+        }        
+        
         this.spreadTheInfection();
-
         this.citizens.forEach(citizen => {
             citizen.next({populationMovementRate: this.gameConfig.citizen.populationMovement, currentTurn: this.turn});           
         })
-        this.infectedCitizens.forEach(infectedCitizen => {
-            infectedCitizen.next({populationMovementRate: this.gameConfig.citizen.populationMovement, currentTurn: this.turn});
-        })
-        this.clearInfectedCitizensArray(); // Double CLEAR citizen state update sick -> curred REFACTOR TODO
 
+        this.buildingsState = this.generateBuildingsState(this.citizens)
+        this.infectedCitizens = this.citizens.reduce((acc, curr)=>{ return curr.state.infected ? ++acc : acc}, 0);
         let data = {
             turn: this.turn,
-            infected: this.infectedCitizens.length,
-            newInfection: this.newInfection,
+            infected: this.infectedCitizens,
+            newInfection: this.newInfectionPerTurn,
             curred: this.citizens.reduce((acc, curr)=>{ return curr.state.curred ? ++acc : acc}, 0),
             neverInfected: this.citizens.reduce((acc, curr)=>{ return !curr.state.curred && !curr.state.infected && !curr.state.sick ? ++acc : acc}, 0),
-            sick: this.infectedCitizens.reduce((acc, curr)=>{ return curr.state.sick ? ++acc : acc}, 0)
+            sick: this.citizens.reduce((acc, curr)=>{ return !curr.state.curre && curr.state.sick ? ++acc : acc}, 0)
         }
         if(!simulatorMode){
-            this.view.next(this.citizens.concat(this.infectedCitizens), data);   
+            this.view.next(this.citizens, data);   
         }
         this.gameHistory.saveCurrentTurn(data)
     }
@@ -170,9 +191,19 @@ function Game(gameConfig, gameControllers){
         this.turn = 0;
         this.citizens = [];
         this.residentialBuildings = [];
-        this.infectedCitizens = [];
-        // this.infectedBuildings = []; todo idea...
+        this.buildingsState = {}; 
+        // this.buildingsState = {
+        //     'buildingId': {
+        //         infectionLevel: number,
+        //         healtyCitizenIndex: [number] 
+        //     }
+        // }; 
+    
+        
         this.turn = 0;
+        this.infectedCitizens = 0;
+        this.newInfectionPerTurn = 0;
+
         this.autoInterval = undefined;
         this.init();
     }

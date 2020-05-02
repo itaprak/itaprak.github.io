@@ -13,7 +13,10 @@ export function View(config) {
         let numberOfCitizens = document.getElementById('numberOfCitizens')
         numberOfCitizens.innerHTML = citizens.length;    
         let numberOfCitizensHadNoContactWithTheVirus = document.getElementById('numberOfCitizensHadNoContactWithTheVirus')
-        numberOfCitizensHadNoContactWithTheVirus.innerHTML = citizens.length-1;          
+        numberOfCitizensHadNoContactWithTheVirus.innerHTML = citizens.length-1;       
+
+        let numberOfCurredCitizens = document.getElementById('numberOfCurredCitizens')
+        numberOfCurredCitizens.innerHTML = 0;      
         
         let infectiousnessHTML = document.getElementById('virusInfectiousness')
         infectiousnessHTML.innerHTML = guiData.infectiousness + ' %';

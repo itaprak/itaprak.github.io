@@ -39,6 +39,8 @@ function Citizen (config){
             if((this.incubationTime+this.curredAfter) === this.state.numberOfTurnsSinceInfection){
                 this.state.curred = true;
                 this.state.infected = false;
+                this.state.sick = false;
+                return;
             }
             this.state.numberOfTurnsSinceInfection++;
         }

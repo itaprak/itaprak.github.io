@@ -6,12 +6,16 @@ export function ShowChart(containerId, data) {
     // Create chart
     let lineChart = document.createElement("CANVAS");
     lineChart.style.width = 1000 + 'px';
-    lineChart.style.height = 250 + 'px';
+    lineChart.style.height = 200 + 'px';
     let barChart = document.createElement("CANVAS");
     barChart.style.width = 1000 + 'px';
-    barChart.style.height = 250 + 'px';
+    barChart.style.height = 200 + 'px';
+    let lineChart2 = document.createElement("CANVAS");
+    lineChart2.style.width = 1000 + 'px';
+    lineChart2.style.height = 200 + 'px';
 
     chartsArea.appendChild(lineChart);
+    chartsArea.appendChild(lineChart2);
     chartsArea.appendChild(barChart);
     chartsArea.style.display = 'block';
 
@@ -37,7 +41,7 @@ export function ShowChart(containerId, data) {
         data: {
             labels: chartLabels,
             datasets: [{
-                label: '# of Infected',
+                label: 'Number of infectiouse citizens',
                 data: infectedDataset,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)'
@@ -48,7 +52,7 @@ export function ShowChart(containerId, data) {
                 borderWidth: 1
             },
             {
-                label: '# of Sick',
+                label: 'Number of sick citizens',
                 data: sickDataset,
                 backgroundColor: [
                     'rgba(155, 199, 132, 0.2)'
@@ -57,9 +61,26 @@ export function ShowChart(containerId, data) {
                     'rgba(155, 199, 132, 1)'
                 ],
                 borderWidth: 1
-            },
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        suggestedMin: 0
+                    }
+                }]
+            }
+        }
+    });
+    var myLineChart2 = new Chart(lineChart2, {
+        type: 'line',
+        data: {
+            labels: chartLabels,
+            datasets: [
             {
-                label: '# of Never infected',
+                label: 'Never infected',
                 data: neverInfectedDataset,
                 backgroundColor: [
                     'rgba(55, 99, 132, 0.05)'
@@ -75,8 +96,7 @@ export function ShowChart(containerId, data) {
                 yAxes: [{
                     ticks: {
                         beginAtZero: true,
-                        suggestedMin: 0,
-                        // suggestedMax: 60
+                        suggestedMin: 0
                     }
                 }]
             }
@@ -89,13 +109,13 @@ export function ShowChart(containerId, data) {
             labels: chartLabels,
             
             datasets: [{
-                label: '# New infection per turn',
+                label: 'New infection per turn',
                 data: newInfectedPerDayDataset,
                 backgroundColor: "rgba(255, 99, 132, 0.6)"
             },
             
             {
-                label: '# New curred per turn',
+                label: 'New curred per turn',
                 data: newCurredDayDataset,
                 backgroundColor: "rgba(55, 99, 32, 0.6)"
             }
@@ -106,8 +126,7 @@ export function ShowChart(containerId, data) {
                 yAxes: [{
                     ticks: {
                         beginAtZero: true,
-                        suggestedMin: 0,
-                        // suggestedMax: 60
+                        suggestedMin: 0
                     }
                 }]
             }
