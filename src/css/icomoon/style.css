@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?vv1277');
-  src:  url('fonts/icomoon.eot?vv1277#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?vv1277') format('truetype'),
-    url('fonts/icomoon.woff?vv1277') format('woff'),
-    url('fonts/icomoon.svg?vv1277#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?i4k8ti');
+  src:  url('fonts/icomoon.eot?i4k8ti#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?i4k8ti') format('truetype'),
+    url('fonts/icomoon.woff?i4k8ti') format('woff'),
+    url('fonts/icomoon.svg?i4k8ti#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,85 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-hospital .path1:before {
+  content: "\e932";
+  color: rgb(180, 189, 191);
+}
+.icon-hospital .path2:before {
+  content: "\e933";
+  margin-left: -1em;
+  color: rgb(157, 167, 168);
+}
+.icon-hospital .path3:before {
+  content: "\e934";
+  margin-left: -1em;
+  color: rgb(190, 200, 204);
+}
+.icon-hospital .path4:before {
+  content: "\e935";
+  margin-left: -1em;
+  color: rgb(162, 169, 170);
+}
+.icon-hospital .path5:before {
+  content: "\e936";
+  margin-left: -1em;
+  color: rgb(162, 169, 170);
+}
+.icon-hospital .path6:before {
+  content: "\e937";
+  margin-left: -1em;
+  color: rgb(162, 169, 170);
+}
+.icon-hospital .path7:before {
+  content: "\e938";
+  margin-left: -1em;
+  color: rgb(162, 169, 170);
+}
+.icon-hospital .path8:before {
+  content: "\e939";
+  margin-left: -1em;
+  color: rgb(162, 169, 170);
+}
+.icon-hospital .path9:before {
+  content: "\e93a";
+  margin-left: -1em;
+  color: rgb(162, 169, 170);
+}
+.icon-hospital .path10:before {
+  content: "\e93b";
+  margin-left: -1em;
+  color: rgb(147, 158, 157);
+}
+.icon-hospital .path11:before {
+  content: "\e93c";
+  margin-left: -1em;
+  color: rgb(138, 150, 149);
+}
+.icon-hospital .path12:before {
+  content: "\e93d";
+  margin-left: -1em;
+  color: rgb(157, 167, 168);
+}
+.icon-hospital .path13:before {
+  content: "\e93e";
+  margin-left: -1em;
+  color: rgb(180, 189, 191);
+}
+.icon-hospital .path14:before {
+  content: "\e93f";
+  margin-left: -1em;
+  color: rgb(218, 237, 227);
+}
+.icon-hospital .path15:before {
+  content: "\e940";
+  margin-left: -1em;
+  color: rgb(198, 82, 74);
+}
+.icon-hospital .path16:before {
+  content: "\e941";
+  margin-left: -1em;
+  color: rgb(211, 98, 95);
+}
 .icon-house .path1:before {
   content: "\e900";
   color: rgb(240, 85, 64);
